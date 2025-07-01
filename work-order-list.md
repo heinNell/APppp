@@ -154,4 +154,7 @@ This markdown provides a template and sample records for work orders (job cards)
 > 2 x Red Led Lights, 1 x Insulation Tape, 2 x Bearing Grease, 1 x Silicone Sealant
 
 ---
-Add new work orders below using the same format. This list can be used to seed your Firestore database or as a template for your Work Order UI.
+AdJob Card / Maintenance Report
+Report.pdf – Maintenance Work Order / Job Card (30-Jun-2025)
+
+d new work orders below using the same format. This list can be used to seed your Firestore database or as a template for your Work Order UI.

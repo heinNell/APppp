@@ -2,9 +2,9 @@
 command = "npm run build"
 publish = "dist"
 
-# Uncomment if you need environment variables for different contexts
-# [context.production.environment]
-# VITE_API_URL = "https://api.production.com"
+# Environment variables for different contexts
+[context.production.environment]
+VITE_RECAPTCHA_SITE_KEY = "6Leyim8rAAAAAINSXyIYn8xtPeOH-7sTB2-fBcNh"
 
 # Handle single-page application routing
 [[redirects]]
