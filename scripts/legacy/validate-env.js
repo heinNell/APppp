@@ -1,3 +1,0 @@
-// Legacy validate-env.js
-// Use only for local environment validation
-// ...original code from /workspaces/APppp/validate-env.js...

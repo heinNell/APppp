@@ -1,3 +1,0 @@
-// Legacy setupEnv.js
-// Use only for local environment setup
-// ...original code from /workspaces/APppp/src/utils/setupEnv.js...
