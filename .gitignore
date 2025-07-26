@@ -71,3 +71,4 @@ functions/.tsbuildinfo
 *storybook.log
 storybook-static
 .vercel
+.env
