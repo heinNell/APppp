@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 
 // Default configuration for development and fallback
-const defaultConfig = {
-  apiKey: "AIzaSyBtq7Z6qqaVmb22d3aNcwNiqkrbGtIhJ7g",
-  authDomain: "mat1-9e6b3.firebaseapp.com",
-  databaseURL: "https://mat1-9e6b3-default-rtdb.firebaseio.com",
-  projectId: "mat1-9e6b3",
-  storageBucket: "mat1-9e6b3.appspot.com",  // <<--- REG GEMAAK
-  messagingSenderId: "250085264089",
-  appId: "1:250085264089:web:51c2b209e0265e7d04ccc8",
-  measurementId: "G-YHQHSJN5CQ"
+const firebaseConfig = {
+  apiKey: "AIzaSyBY8wpMVn9GooWA37NNimmz5l-sE4J3vBg",
+  authDomain: "matdash-19d20.firebaseapp.com",
+  projectId: "matdash-19d20",
+  storageBucket: "matdash-19d20.firebasestorage.app",
+  messagingSenderId: "92797218549",
+  appId: "1:92797218549:web:024a569baabef4fa3d1fbc",
+  measurementId: "G-K748DNNKWZ"
 };
 
 // Use environment variables from .env with fallback to default config
