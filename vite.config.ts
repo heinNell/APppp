@@ -9,7 +9,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://us-central1-mat1-9e6b3.cloudfunctions.net',
+        target: 'https://us-central1-matdash-19d20.cloudfunctions.net',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
