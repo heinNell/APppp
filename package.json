@@ -7,53 +7,84 @@
   "main": "src/main.tsx",
   "scripts": {
     "dev": "concurrently -n FRONTEND,BACKEND -c bgBlue.bold,bgGreen.bold \"vite --host\" \"nodemon --exec ts-node src/main.tsx\"",
-    "dev:enhanced": "concurrently -n FRONTEND,BACKEND -c bgBlue.bold,bgGreen.bold \"vite --host\" \"nodemon --exec ts-node src/main.tsx -- --enhanced\"",
     "frontend": "vite --host",
     "backend": "nodemon --exec ts-node src/main.tsx",
-    "backend:enhanced": "nodemon --exec ts-node src/main.tsx -- --enhanced",
     "start": "ts-node src/main.tsx",
-    "serve": "ts-node src/main.tsx -- --enhanced",
-    "build": "vite build",
+    "build": "pnpm type-check && vite build",
     "preview": "vite preview",
-    "analyze:unused": "madge --json --silent src > unused.json",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write .",
     "type-check": "tsc --noEmit",
     "test": "vitest",
-    "setup:env": "node setup-env.js",
-    "check:env": "node -e \"require('./src/utils/setupEnv.js').displayEnvironmentStatus()\"",
-    "validate:env": "node validate-env.js",
+    "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "integration:audit": "node tools/integration-report.mjs",
-    "read-trips": "ts-node --loader ts-node/esm readTrips.ts",
-    "install-calc-deps": "npm install mathjs big.js simple-statistics regression-js decimal.js --save && npm install @types/mathjs @types/big.js @types/simple-statistics --save-dev",
-    "sync-routes": "bash scripts/syncRoutes.sh",
-    "validate-env": "node checkEnv.cjs",
-    "vercel:prepare": "node vercel-deploy.js",
-    "vercel:deploy": "vercel --prod",
-    "vercel:preview": "vercel"
+    "prepare": "husky",
+    "validate-env": "node checkEnv.cjs"
   },
   "dependencies": {
-    // ... (keep all your existing dependencies exactly as they are)
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.20",
+    "axios": "^1.7.2",
+    "big.js": "^6.2.1",
+    "cors": "^2.8.5",
+    "decimal.js": "^10.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mathjs": "^13.0.0",
+    "react": "^19.0.0-rc.0",
+    "react-dom": "^19.0.0-rc.0",
+    "react-router-dom": "^6.24.0",
+    "regression-js": "^1.1.2",
+    "simple-statistics": "^7.8.3"
   },
   "devDependencies": {
-    // ... (keep all your existing devDependencies exactly as they are)
+    "@chromatic-com/storybook": "^1.6.0",
+    "@faker-js/faker": "^8.4.1",
+    "@storybook/addon-essentials": "^8.2.1",
+    "@storybook/addon-interactions": "^8.2.1",
+    "@storybook/addon-links": "^8.2.1",
+    "@storybook/addon-onboarding": "^8.2.1",
+    "@storybook/blocks": "^8.2.1",
+    "@storybook/react": "^8.2.1",
+    "@storybook/react-vite": "^8.2.1",
+    "@storybook/test": "^8.2.1",
+    "@types/big.js": "^6.2.2",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "@types/cors": "^2.8.17"
+    "@types/mathjs": "^9.4.2",
+    "@types/node": "^20.14.8",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^1.6.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.5.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.0.11",
+    "jsdom": "^24.1.0",
+    "lint-staged": "^15.2.7",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2",
+    "storybook": "^8.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.2",
+    "vitest": "^1.6.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
   },
-  "license": "MIT",
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
-  "repository": "git@github.com:heinNell/APppp.git",
-  "author": "heinNell <heinnell64@gmail.com>",
+  "packageManager": "pnpm@9.4.0",
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix"
-  },
-  "packageManager": "pnpm@8.15.6"
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{ts,tsx,css,md}": "prettier --write"
+  }
 }
